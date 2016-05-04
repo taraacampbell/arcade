@@ -6,10 +6,10 @@ get '/' do
 end
 
 post '/' do
-	p1 = Player.new(params[:name])
-	p2 = Player.new(params [:name])
-	game = Game.new(p1, p2)
+	player_1 = Player.new(params[:name])
+	player_2 = Player.new(params [:name])
+	game = Game.new(player_1, player_2)
 	
-	p1.response = params[:p1_choice]
-	p2.response = params[:p2_choice]
+	player_1.result = params[:p1_choice]
+	player_2.result = params[:p2_choice]
 end
