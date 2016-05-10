@@ -7,9 +7,8 @@ end
 
 post '/' do
 	player_1 = Player.new(params[:name])
-	player_2 = Player.new(params [:name])
-	game = Game.new(player_1, player_2)
+	victory = Game.new(player_1)
 	
-	player_1.result = params[:p1_choice]
-	player_2.result = params[:p2_choice]
+	player_1.result = params[:weapon]
+	player_2.result = params[:weapon2]
 end
