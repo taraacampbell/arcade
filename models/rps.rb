@@ -1,41 +1,47 @@
 
-class Player 
-	attr_accessor :name, :weapon
-end
-
-
 class Game 
+	attr_accessor :weapon, :computer_win, :human_win
+
 	def initialize
-		player = Player.new
-		"What's your name!?"
-		player.name = params[:name]
-		"Welcome #{player.name}!"
-		@computer = player.computer_choice
-		@weapon = player.weapon_choice
-		@computer
+		weaponArray = ["rock", "paper", "scissors"]
+		@computer = weaponArray[rand(weaponArray.length)]
+		@weapon
+		@human_win = 0
+		@computer_win = 0
+
 	end
 
-def game_time
-	if @computer == "rock" && @weapon == "scissors" 
-		then "Computer wins!"
-	elsif @computer == @weapon
-		then "It's a tie!"
-	elsif @computer == "scissors" && @weapon == "paper"
-		then "computer wins!"
-	elsif @computer == "paper" && @weapon == "rock"
-		then "Computer Wins"
-	elsif @computer == "scissors" && @weapon == "rock"
-		then "You win!"
-	elsif @computer == "paper" && @weapon == "scissors"
-		then "You win!"
-	elsif @computer == "rock" && @weapon == "paper"
-		then "You Win!"
+	def game_time
+		if @computer == "rock" && @weapon == "scissors" 
+			 result = "Computer wins!"
+		elsif @computer == @weapon
+			 result = "It's a tie!"
+		elsif @computer == "scissors" && @weapon == "paper"
+			 result = "Computer wins!"
+		elsif @computer == "paper" && @weapon == "rock"
+			 result = "Computer Wins"
+		elsif @computer == "scissors" && @weapon == "rock"
+			 result = "You win!"
+		elsif @computer == "paper" && @weapon == "scissors"
+			 result = "You win!"
+		elsif @computer == "rock" && @weapon == "paper"
+			 result = "You Win!"
+		end
+
+		if result == "You Win!"
+			@human_win+=1
+		elsif result == "Computer Wins!"
+			@computer_win+=1
+		end
+
+		result
 	end
-end
+
+	
 
 end
 
-victory = Game.new
-victory.game_time
+game = Game.new
+game.game_time
 
 
