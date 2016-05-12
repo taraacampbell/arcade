@@ -1,7 +1,7 @@
 <h1> Rock, Paper, Scissors </h1>
 
-<form action="/" method="POST">
-	<input type="text" name="name" placeholder="Player 1 Name">
+<form action="/result" method="POST">
+	<input type="text" name="name" placeholder="Player Name">
 
 	<h3> Player 1 choice </h3>
 	<select name="player1_choice">
@@ -15,15 +15,4 @@
 
 <% if @result %>
 	<%= @result %>
-
-<% if @human_win<2 || @computer_win<2 %>
-	Try Again
-<% end %>
-
-<% if @human_win==2 %>
-	You win best of 3!
-<% elsif @computer_win==2 %>
-	Computer wins best of 3!
-<% end %>
-
 <% end %>

@@ -13,28 +13,35 @@ class Game
 
 	def game_time
 		if @computer == "rock" && @weapon == "scissors" 
-			 result = "Computer wins!"
+			 result = "Computer wins! Try again"
 		elsif @computer == @weapon
-			 result = "It's a tie!"
+			 result = "It's a tie! Try again"
 		elsif @computer == "scissors" && @weapon == "paper"
-			 result = "Computer wins!"
+			 result = "Computer wins! Try again"
 		elsif @computer == "paper" && @weapon == "rock"
-			 result = "Computer Wins"
+			 result = "Computer wins! Try again"
 		elsif @computer == "scissors" && @weapon == "rock"
-			 result = "You win!"
+			 result = "You win! Try again"
 		elsif @computer == "paper" && @weapon == "scissors"
-			 result = "You win!"
+			 result = "You win! Try again"
 		elsif @computer == "rock" && @weapon == "paper"
-			 result = "You Win!"
+			 result = "You win! Try again"
 		end
 
-		if result == "You Win!"
+		if result == "You win! Try again"
 			@human_win+=1
-		elsif result == "Computer Wins!"
+		elsif result == "Computer wins! Try again"
 			@computer_win+=1
 		end
+	end
 
-		result
+		
+	def best_of_three
+		if @human_win==2
+			"You win best of 3!"
+		elsif @computer_win==2
+			"Computer wins best of 3!"
+		end
 	end
 
 	
